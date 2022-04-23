@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Client\Luminous.Client.csproj" />
+    <ProjectReference Include="..\Domain\Luminous.Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\Luminous.Infrastructure.csproj" />
     <ProjectReference Include="..\Shared\Luminous.Shared.csproj" />
   </ItemGroup>

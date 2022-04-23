@@ -1,0 +1,30 @@
+﻿@page "/Product"
+@using Luminous.Shared
+@inject HttpClient Http
+
+<PageTitle>Luminous - Add product</PageTitle>
+
+<h1>Add product</h1>
+
+<p>
+    <span>Title: </span>
+    <input @bind="_productDto.Title" />
+</p>
+
+<p>
+    <span>Price: </span>
+    <input @bind="_productDto.Price" />
+</p>
+
+<button @onclick="AddProductAsync" disabled="@IsValidProduct">Add product</button>
+
+@code {
+    private ProductDto _productDto = new();
+
+    private bool IsValidProduct => string.IsNullOrEmpty(_productDto.Title) || _productDto.Price == null;
+
+    private async Task AddProductAsync()
+    {
+        await Http.PostAsJsonAsync<ProductDto>("Product", _productDto);
+    }
+}

@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luminous.Server", "Luminous\Server\Luminous.Server.csproj", "{4B71B83A-5A98-4924-B9A5-8AC3A0135027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Luminous.Server", "Luminous\Server\Luminous.Server.csproj", "{4B71B83A-5A98-4924-B9A5-8AC3A0135027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luminous.Client", "Luminous\Client\Luminous.Client.csproj", "{A9A11D04-ADEF-4728-9FB7-B0CD11107DC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Luminous.Client", "Luminous\Client\Luminous.Client.csproj", "{A9A11D04-ADEF-4728-9FB7-B0CD11107DC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luminous.Shared", "Luminous\Shared\Luminous.Shared.csproj", "{09148DBE-ECF8-4488-9CF7-8100F605890A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Luminous.Shared", "Luminous\Shared\Luminous.Shared.csproj", "{09148DBE-ECF8-4488-9CF7-8100F605890A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luminous.Infrastructure", "Luminous\Infrastructure\Luminous.Infrastructure.csproj", "{A09D035D-5F8D-472C-B97E-A0BBF226386D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Luminous.Infrastructure", "Luminous\Infrastructure\Luminous.Infrastructure.csproj", "{A09D035D-5F8D-472C-B97E-A0BBF226386D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luminous.Domain", "Luminous\Domain\Luminous.Domain.csproj", "{2A49A594-B746-4EE8-A03A-F73E53A8ABC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Luminous.Domain", "Luminous\Domain\Luminous.Domain.csproj", "{2A49A594-B746-4EE8-A03A-F73E53A8ABC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

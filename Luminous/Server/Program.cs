@@ -1,13 +1,22 @@
-using Luminous.Infrastructure.Commands;
 using Luminous.Infrastructure.Models;
+using Luminous.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.Configure<LuminousDatabaseSettings>(builder.Configuration.GetSection("LuminousDatabase"));
+var connectioString = builder.Configuration["LuminousMongoDb:ConnectionString"];
+var databaseName = builder.Configuration["LuminousMongoDb:DatabaseName"];
+var productCollectionName = builder.Configuration["LuminousMongoDb:ProductCollectionName"];
 
-builder.Services.AddSingleton<WeatherForecastCreateCommand>();
+builder.Services.Configure<LuminousMongoDbSettings>(l =>
+{
+    l.ConnectionString = connectioString;
+    l.DatabaseName = databaseName;
+    l.ProductCollectionName = productCollectionName;
+});
+
+builder.Services.AddSingleton<ProductRepository>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
