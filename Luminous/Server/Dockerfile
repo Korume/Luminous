@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Luminous/Server/Luminous.Server.csproj", "Luminous/Server/"]
+COPY ["Luminous/Domain/Luminous.Domain.csproj", "Luminous/Domain/"]
 COPY ["Luminous/Client/Luminous.Client.csproj", "Luminous/Client/"]
 COPY ["Luminous/Shared/Luminous.Shared.csproj", "Luminous/Shared/"]
 COPY ["Luminous/Infrastructure/Luminous.Infrastructure.csproj", "Luminous/Infrastructure/"]
