@@ -4,38 +4,38 @@
 
 <PageTitle>Luminous - Products</PageTitle>
 
-<h1>Products</h1>
-
 @if (_productDtos == null)
 {
-    <p><em>Loading...</em></p>
+	<p><em>Loading...</em></p>
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var productDto in _productDtos)
-            {
-                <tr>
-                    <td>@productDto.Title</td>
-                    <td>@productDto.Price @productDto.CurrencySymbol</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+	<section>
+		<div class="container mx-auto">
+			<div class="row row-cols-1 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+				@foreach (var productDto in _productDtos)
+				{
+					<div class="col">
+						<div class="card" >
+							<img src="https://img.ukrzoloto.ua/images/pr/520_520/339faa9084d61fcda8494b48074d7880/1645198657/UZ26382350_000152571.jpg" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">@productDto.Title</h5>
+								<p class="card-text">@productDto.Price @productDto.CurrencySymbol</p>
+								<a href="#" class="btn btn-primary">Buy</a>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
 }
 
 @code {
-    private ProductDto[]? _productDtos;
+	private ProductDto[]? _productDtos;
 
-    protected override async Task OnInitializedAsync()
-    {
-        _productDtos = await Http.GetFromJsonAsync<ProductDto[]>("Product");
-    }
+	protected override async Task OnInitializedAsync()
+	{
+		_productDtos = await Http.GetFromJsonAsync<ProductDto[]>("Product");
+	}
 }

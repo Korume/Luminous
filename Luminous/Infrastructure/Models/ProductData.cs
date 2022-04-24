@@ -13,6 +13,7 @@ namespace Luminous.Infrastructure.Models
         public string Title { get; set; }
 
         [BsonRequired]
+        [BsonRepresentation(BsonType.Decimal128)]
         public decimal Price { get; set; }
 
         public ProductData(string? id, string title, decimal price)
