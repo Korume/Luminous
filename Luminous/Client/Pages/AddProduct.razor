@@ -16,15 +16,29 @@
     <input @bind="_productDto.Price" />
 </p>
 
+<p>
+    <span>Photo source: </span>
+    <input type="url" @bind="_photoSource" />
+</p>
+
+
 <button @onclick="AddProductAsync" disabled="@IsValidProduct">Add product</button>
 
 @code {
     private ProductDto _productDto = new();
+    private string? _photoSource;
 
     private bool IsValidProduct => string.IsNullOrEmpty(_productDto.Title) || _productDto.Price == null;
 
     private async Task AddProductAsync()
     {
+        _productDto.PhotoSources = new List<string>();
+
+        if (!string.IsNullOrEmpty(_photoSource))
+        {
+            _productDto.PhotoSources.Add(_photoSource);
+        }
+
         await Http.PostAsJsonAsync<ProductDto>("Product", _productDto);
     }
 }

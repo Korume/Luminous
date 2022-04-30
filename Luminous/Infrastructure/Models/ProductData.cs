@@ -16,11 +16,24 @@ namespace Luminous.Infrastructure.Models
         [BsonRepresentation(BsonType.Decimal128)]
         public decimal Price { get; set; }
 
+        [BsonElement]
+        [BsonRequired]
+        public List<string> PhotoSources { get; private set; }
+
         public ProductData(string? id, string title, decimal price)
         {
             Id = id;
             Title = title;
             Price = price;
+            PhotoSources = new List<string>();
+        }
+
+        public ProductData(string? id, string title, decimal price, List<string> photoSources)
+        {
+            Id = id;
+            Title = title;
+            Price = price;
+            PhotoSources = photoSources;
         }
     }
 }

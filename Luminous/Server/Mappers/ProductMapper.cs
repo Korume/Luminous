@@ -13,7 +13,7 @@ namespace Luminous.Server.Mappers
 
         public static ProductData ToData(ProductDto productDto)
         {
-            return new ProductData(null, productDto.Title!, productDto.Price!.Value);
+            return new ProductData(null, productDto.Title!, productDto.Price!.Value, productDto.PhotoSources!);
         }
 
         public static Product ToDomain(ProductData productData)
@@ -31,7 +31,18 @@ namespace Luminous.Server.Mappers
             return new ProductDto
             {
                 Price = product.Price,
-                Title = product.Title
+                Title = product.Title,
+                PhotoSources = product.PhotoSources
+            };
+        }
+
+        public static ProductDto ToDto(ProductData productData)
+        {
+            return new ProductDto
+            {
+                Price = productData.Price,
+                Title = productData.Title,
+                PhotoSources = productData.PhotoSources
             };
         }
     }

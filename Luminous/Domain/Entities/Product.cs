@@ -7,13 +7,22 @@
         public decimal Price { get; }
         public string CurrencySymbol { get; } = "₴";
 
-        public List<Uri> Photos { get; } = new List<Uri>();
+        public List<string> PhotoSources { get; }
 
         public Product(string? id, string title, decimal price)
         {
             Id = id;
             Title = title;
             Price = price;
+            PhotoSources = new List<string>();
+        }
+
+        public Product(string? id, string title, decimal price, List<string> photoSources)
+        {
+            Id = id;
+            Title = title;
+            Price = price;
+            PhotoSources = photoSources;
         }
     }
 }

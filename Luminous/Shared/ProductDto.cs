@@ -10,6 +10,8 @@ namespace Luminous.Shared
         [Required]
         public decimal? Price { get; set; }
 
-        public string CurrencySymbol => "₴";
+        public List<string> PhotoSources { get; set; } = new List<string>();
+
+        public static string CurrencySymbol => "₴";
     }
 }

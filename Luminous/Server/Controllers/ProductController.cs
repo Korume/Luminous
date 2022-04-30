@@ -9,24 +9,19 @@ namespace Luminous.Server.Controllers
     [Route("[controller]")]
     public class ProductController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
-        private readonly ILogger<ProductController> _logger;
         private readonly ProductRepository _productRepository;
 
-        public ProductController(ILogger<ProductController> logger, ProductRepository productRepository)
+        public ProductController(ProductRepository productRepository)
         {
-            _logger = logger;
             _productRepository = productRepository;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var productDtos = await _productRepository.GetAsync();
+            var productDatas = await _productRepository.GetAsync();
+
+            var productDtos = productDatas.Select(p => ProductMapper.ToDto(p)).ToList();
 
             return Ok(productDtos);
         }
